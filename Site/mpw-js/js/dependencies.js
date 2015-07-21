@@ -6,10 +6,8 @@ if ((!window.crypto || !window.crypto.subtle) && window.SubtleCrypto)
 
 // If Web Crypto API is not supported we include a JS crypto library
 // https://code.google.com/p/crypto-js/
-if (!window.crypto || !window.crypto.subtle) {
-    document.write("<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js><\/script>");
-    document.write("<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/lib-typedarrays-min.js><\/script>");
-}
+document.write("<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js><\/script>");
+document.write("<script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/lib-typedarrays-min.js><\/script>");
 
 // If Typed Arrays are not supported we include the polyfill
 // https://github.com/inexorabletash/polyfill

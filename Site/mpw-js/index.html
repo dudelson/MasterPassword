@@ -1,3 +1,9 @@
+<!--
+ TODO:
+  - "show" button doesn't work the first time
+  - password text is off-center
+  - "copied text to clipboard" message shouldn't move logoff button
+-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,15 +16,10 @@
         <link rel="stylesheet" href="css/main.css?2">
     </head>
     <body>
-        <header>
-            <p><strong>BETA</strong> - This site may not yet work on your browser.<br>
-            Passwords are generated locally, your master password is not sent to any server.  See <a href="https://github.com/Lyndir/MasterPassword/tree/master/Site/mpw-js">the source</a> or run the <a href="js/mpw-js/test/">test suite</a>.</p>
-            <span id="error"></span>
-        </header>
         <section id="identity" class="active"><form action="#">
-            <h1>Identity</h1>
             <p>
-                <input id="userName" type="text" placeholder="Your Full Name" /><br>
+	    <!--<input id="userName" type="text" placeholder="Your Full Name" /><br>-->
+		<h2 id="id-identicon"></h2>
                 <input id="masterPassword" type="password" placeholder="Your Master Password" /><br>
                 <input type="submit" value="⏎" /><br>
                 <input type="image" src="img/spinner.svg" />
@@ -26,8 +27,8 @@
         </form></section>
 
         <section id="site">
-            <h1>Site</h1>
             <p>
+		<h2 id="site-identicon"></h2>
                 <input id="siteName" type="text" placeholder="Site Name (eg. apple.com)" /><br>
                 <span class="small">
                     <input id="siteCounter" type="number" placeholder="Site Counter" min="1" max="100" value="1" class="half" />
@@ -42,7 +43,12 @@
                         <option value="phrase">Phrase</option>
                     </select>
                 </span><br>
-                <h2 id="sitePassword" title="Your password is ..."></h2><br>
+		<div id="hidden"></div>
+		<div id="pass-and-show">
+		    <h2 id="sitePassword"></h2>
+		    <button id="show"><img src="img/eye.png" width="20" height="20" /></button>
+		</div><br>
+		<div id="copy-status"></div><br>
                 <input id="logout" type="submit" value="⎋" />
                 <input type="image" src="img/spinner.svg" />
             </p>
@@ -60,6 +66,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
         <script src="js/dependencies.js?3"></script>
         <script src="js/main.js?3"></script>
+	<script src="js/identicon.js"></script>
     </body>
 
 </html>
